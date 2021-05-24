@@ -1,9 +1,38 @@
 import React from 'react'
+import styled from 'styled-components'
+
+const StyledForm =styled.div`
+    background-color: '#242943';
+    color: '#ffffff'; 
+
+    input,
+    select,
+    textarea {
+        background: rgba(212, 212, 255, 0.035);
+        border: none;
+        width: 100%;
+
+        &:focus {
+            border-color: #9bf1ff;
+            box-shadow: 0 0 0 2px #9bf1ff;
+        }
+    }
+
+    button {
+        background-color: '#ffffff';
+        color: '#242943';
+
+        &:hover {
+            background-color: #9bf1ff;
+        }
+    }
+
+`
 
 function LoginForm() {
     return (
         <form>
-            <div>
+            <StyledForm>
                 <h2>Log in</h2>
                 <div>
                     <label>Name: </label>
@@ -18,7 +47,7 @@ function LoginForm() {
                     <input type="password" name="password" id="password" />
                 </div>
                 <button>Log in</button>
-            </div>
+            </StyledForm>
         </form>
     )
 }
