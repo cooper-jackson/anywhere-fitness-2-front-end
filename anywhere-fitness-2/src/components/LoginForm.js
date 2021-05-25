@@ -2,15 +2,19 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledForm =styled.div`
-    background-color: '#242943';
-    color: '#ffffff'; 
+    background-color: #242943;
+    color: #ffffff; 
 
     input,
     select,
     textarea {
-        background: rgba(212, 212, 255, 0.035);
+        background: #434862;
         border: none;
-        width: 100%;
+        width: 50%;
+        color: #ffffff;
+        padding: .5%;
+        margin: 1%;
+
 
         &:focus {
             border-color: #9bf1ff;
@@ -21,6 +25,7 @@ const StyledForm =styled.div`
     button {
         background-color: '#ffffff';
         color: '#242943';
+        margin: 1%;
 
         &:hover {
             background-color: #9bf1ff;
