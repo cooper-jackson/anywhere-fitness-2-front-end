@@ -40,19 +40,19 @@ function SignUpForm() {
                 <h2>Sign up</h2>
                 <div>
                     <label>Name: </label>
-                    <input type="text" name="name" id="name" />
+                    <input type="text" name="name" id="name" placeholder="Enter your name" />
                 </div>
                 <div>
                     <label>Email: </label>
-                    <input type="email" name="email" id="email" />
+                    <input type="email" name="email" id="email" placeholder="Enter your email address" />
                 </div>
                 <div>
                     <label>Password: </label>
-                    <input type="password" name="password" id="password" />
+                    <input type="password" name="password" id="password" placeholder="Password" />
                 </div>
                 <div>
                     <label>Verify Password: </label>
-                    <input type="password" name="verifyPassword" id="verifyPassword" />
+                    <input type="password" name="verifyPassword" id="verifyPassword" placeholder="Verify password" />
                 </div>
                 <button>Sign up</button>
             </StyledForm>
