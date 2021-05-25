@@ -7,18 +7,18 @@ const StyledForm = styled.div`
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(36,41,67,1) 35%);    
     color: #ffffff; 
     position: relative;
-    /* width: 100%; */
     min-height: 100vh;
-    /* width: 60%; */
     /* min-height: 50vh; */
+    /* width: 100%; */
+    /* width: 60%; */
     /* margin: 0 auto; */
     /* padding: 10% 0%; */
+    margin: 0;
+    /* padding: 5% 5%; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    /* padding: 5% 5%; */
-    margin: 0;
     box-sizing: border-box;
        
     h2 {
@@ -38,7 +38,6 @@ const StyledForm = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: center;
-        /* box-shadow: 0 10px 40px -14px rgba(0,0,0,0.25); */
     }
 
     .form-content {
@@ -50,11 +49,8 @@ const StyledForm = styled.div`
     input,
     select,
     textarea {
-        /* background: #434862; */
         background: #e8eeef;
-        color: #ffffff;
-        /* border: 1px solid #434862; */
-        box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+        color: #323232;
         border: none;
         border-radius: 5px;
         padding: 1em;
@@ -67,18 +63,10 @@ const StyledForm = styled.div`
         justify-content: center; */
         }   
         
-        /* ::placeholder{
-            color: #ffffff;
-        } */
-
         &:focus {
             /* border-color: #ffffff;
             box-shadow: 0 0 0 2px #9bf1ff; */
             outline: none;
-        }
-
-        &:input {
-            border-color: #323232;
         }
     }
 
@@ -106,15 +94,20 @@ const StyledForm = styled.div`
         transition: all .4s ease-in-out;
     }
 
+    .form-button {
+        padding-top: 2.5%;
+        padding-bottom: 5%;
+    }
+
 `;
 
 function LoginForm() {
   return (
     <StyledForm>
         <div className="container">
-            <form>
-                    <h2>Log in</h2>
-                    <div className="form-content">
+            <form>  
+                <h2>Log in</h2>
+                <div className="form-content">
                     {/* <div>
                                 <input type="text" name="name" id="name" placeholder="Name" />
                             </div> */}
@@ -134,7 +127,7 @@ function LoginForm() {
                         placeholder="Password"
                         />
                     </div>
-                    <div>
+                    <div className="form-button">
                         <button>Log in</button>
                         <button>Register</button>
                     </div>
