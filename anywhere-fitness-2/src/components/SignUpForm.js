@@ -2,19 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledForm = styled.div`
-    /* background-color: #242943; */
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(36,41,67,1) 35%);    
     color: #ffffff; 
     position: relative;
     min-height: 100vh;
-    /* min-height: 50vh; */
-    /* width: 100%; */
-    /* width: 60%; */
-    /* margin: 0 auto; */
-    /* padding: 10% 0%; */
     margin: 0;
-    /* padding: 5% 5%; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -32,8 +25,6 @@ const StyledForm = styled.div`
         padding: 2em;
         padding-bottom: 3em;
         border-radius: 10px;
-        /* max-width: 400px; */
-        /* max-width: 100%; */
         width: 550px;
         display: flex;
         flex-direction: column;
@@ -57,15 +48,9 @@ const StyledForm = styled.div`
         margin-top: .25em;
         margin-bottom: .5em;
         width: 82%;
-        /* margin: 0 auto 1em auto; */
-        /* display: flex;
-        align-items: center;
-        justify-content: center; */
         }   
         
         &:focus {
-            /* border-color: #ffffff;
-            box-shadow: 0 0 0 2px #9bf1ff; */
             outline: none;
         }
     }
@@ -79,8 +64,6 @@ const StyledForm = styled.div`
         width: 100%;
         border: none;
         border-radius: 5px;
-        /* margin-top: .5em;
-        margin-bottom: .5em; */
         margin: .5em auto;
         padding: 1%;
         cursor: pointer;
@@ -99,6 +82,10 @@ const StyledForm = styled.div`
         padding-bottom: 5%;
     }
 
+    @media(max-width: 620px) {
+        form {
+            width: 300px;
+    }
 `;
 
 function SignUpForm() {
@@ -110,6 +97,7 @@ function SignUpForm() {
                 <div className="form-content">
                     <div>
                         <input 
+                        autoFocus
                         type="text" 
                         name="name" 
                         id="name" 
@@ -121,7 +109,7 @@ function SignUpForm() {
                         type="email"
                         name="email"
                         id="email"
-                        placeholder="Enter your email address"
+                        placeholder="Email"
                         />
                     </div>
                     <div>
