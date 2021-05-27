@@ -42,7 +42,6 @@ const StyledClassForm = styled.div`
         flex-direction: column;
     }
 
-    
 
     input,
     select,
