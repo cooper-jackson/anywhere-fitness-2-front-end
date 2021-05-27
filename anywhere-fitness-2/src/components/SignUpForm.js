@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router'
 import axios from 'axios'
+import { StyledLoginForm } from '../styled-components/StyledForm'
 
 function SignUpForm(props) {
     const [credentials, setCredentials] = useState({})
@@ -9,35 +10,21 @@ function SignUpForm(props) {
 
     const handleLoginClick = e => {
         e.preventDefault()
-        // console.log(credentials)
         axios.post('https://ft-anywhere-fitness-2.herokuapp.com/register', credentials)
             .then(res => {
                 localStorage.setItem('user_id', res.data.user.user_id)
                 localStorage.setItem('username', res.data.user.username)
                 localStorage.setItem('email', res.data.user.email)
                 localStorage.setItem('role', res.data.user.role)
-                localStorage.setItem('token', res.data.token)
-                        // props.loginSuccess(res.data)
-                        
+                localStorage.setItem('token', res.data.token)                        
                 setCredentials({})
                 push('/Home')
                 console.log(res)
             })
-            //     axios.post('https://ft-anywhere-fitness-2.herokuapp.com/login', { username: credentials.username, password: credentials.password })
-            //         .then(res => {
-                        
-            //         })
-            //         .catch(err => {
-            //             console.log(err)
-            //         })
-            //     // push('/')
-            // })
             .catch(err => {
                 console.log(err)
-            })
-        
-    }
-    
+            })        
+        }
 
     const handleChange = e => {
         setCredentials({
@@ -46,30 +33,33 @@ function SignUpForm(props) {
     }
 
     return (
-        <form>
-            <div>
-                <h2>Sign up</h2>
-                <div>
-                    <label>Name: </label>
-                    <input type="text" name="username" id="username" onChange={handleChange}/>
-                </div>
-                <div>
-                    <label>Email: </label>
-                    <input type="email" name="email" id="email" onChange={handleChange}/>
-                </div>
-                <div>
-                    <label>Password: </label>
-                    <input type="password" name="password" id="password" onChange={handleChange}/>
-                </div>
-                <div>
-                    <label>Role: (Client or Instructor) </label>
-                    <input type="text" name="role" id="role" onChange={handleChange}/>
-                </div>
-
+        <StyledLoginForm>
+            <div className="container">
+                <form>
+                    <h2>Sign up</h2>
+                    <div className="form-content">
+                        <div>
+                            <label>Name: </label>
+                            <input type="text" name="username" id="username" onChange={handleChange} placeholder="Name"/>
+                        </div>
+                        <div>
+                            <label>Email: </label>
+                            <input type="email" name="email" id="email" onChange={handleChange} placeholder="Email"/>
+                        </div>
+                        <div>
+                            <label>Password: </label>
+                            <input type="password" name="password" id="password" onChange={handleChange} placeholder="Password"/>
+                        </div>
+                        <div>
+                            <label>Role: (Client or Instructor) </label>
+                            <input type="text" name="role" id="role" onChange={handleChange} placeholder="Role"/>
+                        </div>
+                    </div>
+                </form>
                 {/* ADD ROLE */}
                 <button onClick={handleLoginClick}>Sign up</button>
             </div>
-        </form>
+        </StyledLoginForm>
     )
 }
 

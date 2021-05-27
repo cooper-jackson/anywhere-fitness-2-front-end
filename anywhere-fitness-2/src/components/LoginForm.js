@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import axios from 'axios'
 import { loginStart, loginSuccess } from '../actions/index'
 import { axiosWithAuth } from '../utils/AxiosWithAuth'
-
-
+import { StyledLoginForm } from '../styled-components/StyledForm'
 
 function LoginForm(props) {
     const [credentials, setCredentials] = useState({
@@ -14,10 +12,6 @@ function LoginForm(props) {
     })
 
     let { push } = useHistory()
-
-    // useEffect(() => {
-    //     setCredentials({})
-    // },[])
 
     const handleChange = e => {
         console.log(credentials)
@@ -28,7 +22,6 @@ function LoginForm(props) {
 
     const handleLoginClick = e => {
         e.preventDefault()
-        // async function fetchData() {
         props.loginStart(credentials)
         axiosWithAuth().post('https://ft-anywhere-fitness-2.herokuapp.com/login', credentials)
         .then(res => {
@@ -40,7 +33,6 @@ function LoginForm(props) {
                 localStorage.setItem('username', res.data.username)
                 localStorage.setItem('email', res.data.email)
                 localStorage.setItem('role', res.data.role)
-
             })
             .catch(err => {
                 console.log(err)
@@ -50,8 +42,6 @@ function LoginForm(props) {
         .catch(err => {
             console.log(err.message)
         })
-    // }
-    // fetchData()
         console.log(credentials)
     }
 
@@ -61,22 +51,26 @@ function LoginForm(props) {
     }
 
     return (
-        <div>
-            <h2>Log in</h2>
-            <form>
-                <div>
-                    <label>Username: </label>
-                    <input type="text" name="username" value={credentials.username} onChange={handleChange}/>
-                </div>
+        <StyledLoginForm>
+            <div className="container">
+                <form>
+                    <h2>Log in</h2>
+                    <div className="form-content">
+                        <div>
+                            <label>Username: </label>
+                            <input type="text" name="username" value={credentials.username} onChange={handleChange} placeholder="Name"/>
+                        </div>
 
-                <div>
-                    <label>Password: </label>
-                    <input type="password" name="password" value={credentials.password} onChange={handleChange}/>
-                </div>
-                <button onClick={handleLoginClick}>Log in</button>
-                <button onClick={handleRegisterClick}>Register</button>
-            </form>
-        </div>
+                        <div>
+                            <label>Password: </label>
+                            <input type="password" name="password" value={credentials.password} onChange={handleChange} placeholder="Password"/>
+                        </div>
+                        <button onClick={handleLoginClick}>Log in</button>
+                        <button onClick={handleRegisterClick}>Register</button>
+                    </div>
+                </form>
+            </div>
+        </StyledLoginForm>
     )
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { connect } from 'react-redux';
 import './App.css';
@@ -8,7 +8,6 @@ import LoginForm from './components/LoginForm';
 import SignUpForm from './components/SignUpForm';
 import PrivateRoute from './components/PrivateRoute'
 import EditForm from './components/EditForm'
-import { fetchClasses } from './actions/index'
 
 
 function App(props) {
