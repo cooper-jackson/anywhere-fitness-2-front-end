@@ -1,5 +1,3 @@
-import react from 'react';
-
 export default function ClassForm(props) {
 
     return (
@@ -44,13 +42,6 @@ export default function ClassForm(props) {
                     <input
                     type='text'
                     name='location'
-                    />
-                </label>
-
-                <label>Current number of registered attendees
-                    <input
-                    type='text'
-                    name='attendees'
                     />
                 </label>
 
