@@ -86,25 +86,28 @@ export const ClassComponent = (props) => {
         <div>
             {/* {reservedInfo.includes(localStorage.user_id) ? console.log('yeet') : console.log('neet')} */}
             {/* <div>{foundClass === "Attending" ? classInfo.name : console.log(foundClass)}</div> */}
-            <div>Index: {index}</div>
-            <div>Name: {classInfo.name}</div>
-            <div>Type: {classInfo.type}</div>
-            <div>Start Time: {classInfo.start_time}</div>
-            <div>Duration: {classInfo.duration}</div>
-            <div>Intensity Level: {classInfo.intensity_level}</div>
-            <div>Location: {classInfo.location}</div>
-            <div>Number Registered: {classInfo.num_registered}</div>
-            <div>Max Class Size: {classInfo.max_class_size}</div>
-            <div>Date: {classInfo.date}</div>
-            {/* <div>{classInfo.instructor.username}</div> */}
-            <div>{foundClass}</div>
-            <select id={selectorId}>
-                <option></option>
-                <option value="Not Attending">Not Attending</option>
-                <option value="Attending">Attending</option>
-            </select>
-            <button onClick={handleStatusChange}>Save Attendance Setting</button>
-            {localStorage.role === 'INSTRUCTOR' && <Link to={`/Edit/${classInfo.class_id}`}>Edit</Link>}
+            <div>
+                <div>Index: {index}</div>
+                <div>Name: {classInfo.name}</div>
+                <div>Type: {classInfo.type}</div>
+                <div>Start Time: {classInfo.start_time}</div>
+                <div>Duration: {classInfo.duration}</div>
+                <div>Intensity Level: {classInfo.intensity_level}</div>
+                <div>Location: {classInfo.location}</div>
+                <div>Number Registered: {classInfo.num_registered}</div>
+                <div>Max Class Size: {classInfo.max_class_size}</div>
+                <div>Date: {classInfo.date}</div>
+                {/* <div>{classInfo.instructor.username}</div> */}
+                <div>{foundClass}</div>
+                <select id={selectorId}>
+                    <option></option>
+                    <option value="Not Attending">Not Attending</option>
+                    <option value="Attending">Attending</option>
+                </select>
+                <button onClick={handleStatusChange}>Save Attendance Setting</button>
+                {localStorage.role === 'INSTRUCTOR' && <Link to={`/Edit/${classInfo.class_id}`}>Edit</Link>}
+                <p>-----------------------------</p>
+            </div>
         </div>
     )
 } 
