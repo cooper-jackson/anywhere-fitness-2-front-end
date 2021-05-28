@@ -36,6 +36,14 @@ const StyledForm = styled.div`
         flex-direction: column;
     }
 
+    label {
+        color: #323232;
+        text-align: left;
+        padding-left: 2.5rem;
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+    }
+
     input {
         background: #e8eeef;
         color: #323232;

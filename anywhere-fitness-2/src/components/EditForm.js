@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { useHistory, useParams } from 'react-router';
 import { addClass } from '../actions/index'
 import { axiosWithAuth } from '../utils/AxiosWithAuth';
+import { StyledClassForm } from '../styled-components/StyledClassForm';
 
 
 function EditForm(props) {
@@ -72,96 +73,106 @@ function EditForm(props) {
     }
 
     return (
-        <div>
+        <StyledClassForm> 
             <form className='class-form container'>
-                <div className='class-form inputs'>
-                    <p> {class_id}</p>
-                    <label>Name
-                        <input
-                        type='text'
-                        name='name'
-                        value={classData.name}
-                        onChange={handleChange}
-                        />
-                    </label>
+                <h2>Edit Class Form</h2>
+                    <div className="form-content">
+                        <label>Name
+                            <input
+                            type='text'
+                            name='name'
+                            value={classData.name}
+                            onChange={handleChange}
+                            placeholder={'Name'}
+                            />
+                        </label>
 
-                    <label>Type
-                        <input
-                        type='text'
-                        name='type'
-                        value={classData.type}
-                        onChange={handleChange}
-                        />
-                    </label>
-                    
-                    <label>Start Time
-                        <input
-                        type='text'
-                        name='start_time'
-                        value={classData.start_time}
-                        onChange={handleChange}
-                        />
-                    </label>
+                        <label>Type
+                            <input
+                            type='text'
+                            name='type'
+                            value={classData.type}
+                            onChange={handleChange}
+                            placeholder={'Type'}
+                            />
+                        </label>
+                        
+                        <label>Start Time
+                            <input
+                            type='text'
+                            name='start_time'
+                            value={classData.start_time}
+                            onChange={handleChange}
+                            placeholder={'Start Time'}
+                            />
+                        </label>
 
-                    <label>Duration
-                        <input
-                        type='text'
-                        name='duration'
-                        value={classData.duration}
-                        onChange={handleChange}
-                        />
-                    </label>
+                        <label>Duration
+                            <input
+                            type='text'
+                            name='duration'
+                            value={classData.duration}
+                            onChange={handleChange}
+                            placeholder={'Duration'}
+                            />
+                        </label>
 
-                    <label>Intensity level
-                        <input
-                        type='text'
-                        name='intensity_level'
-                        value={classData.intensity_level}
-                        onChange={handleChange}
-                        />
-                    </label>
+                        <label>Intensity level
+                            <input
+                            type='text'
+                            name='intensity_level'
+                            value={classData.intensity_level}
+                            onChange={handleChange}
+                            placeholder={'Intensity Level'}
+                            />
+                        </label>
 
-                    <label>Location
-                        <input
-                        type='text'
-                        name='location'
-                        value={classData.location}
-                        onChange={handleChange}
-                        />
-                    </label>
+                        <label>Location
+                            <input
+                            type='text'
+                            name='location'
+                            value={classData.location}
+                            onChange={handleChange}
+                            placeholder={'Location'}
+                            />
+                        </label>
 
-                    <label>Current number of registered attendees
-                        <input
-                        type='text'
-                        name='num_registered'
-                        value={classData.num_registered}
-                        onChange={handleChange}
-                        />
-                    </label>
+                        {/* <label>Current number of registered attendees
+                            <input
+                            type='text'
+                            name='num_registered'
+                            value={classData.num_registered}
+                            onChange={handleChange}
+                            placeholder={'Name'}
+                            />
+                        </label> */}
 
-                    <label>Max class size
-                        <input
-                        type='text'
-                        name='max_class_size'
-                        value={classData.max_class_size}
-                        onChange={handleChange}
-                        />
-                    </label>
+                        <label>Max class size
+                            <input
+                            type='text'
+                            name='max_class_size'
+                            value={classData.max_class_size}
+                            onChange={handleChange}
+                            placeholder={'Max Class Size'}
+                            />
+                        </label>
 
-                    <label>Date
-                        <input
-                        type='text'
-                        name='date'
-                        value={classData.date}
-                        onChange={handleChange}
-                        />
-                    </label>
-                </div>
-            </form>
-            <button onClick={handleSubmit}>Submit</button>
-            <button onClick={handleDelete}>Delete</button>
-            <button onClick={handleCancel}>Cancel</button>
-        </div>
+                        <label>Date
+                            <input
+                            type='text'
+                            name='date'
+                            value={classData.date}
+                            onChange={handleChange}
+                            placeholder={'Date'}
+                            />
+                        </label>
+                    </div>
+                    <button onClick={handleSubmit}>Submit</button>
+                    <button onClick={handleDelete}>Delete</button>
+                    <button onClick={handleCancel}>Cancel</button>
+                </form>
+                
+        </StyledClassForm>
     )
 }
 
