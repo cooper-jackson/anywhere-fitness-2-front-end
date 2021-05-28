@@ -17,6 +17,7 @@ export const ClassComponent = (props) => {
     
     // const [newCount, setNewCount] = useState(Number(props.classes[index].num_registered))
 
+    //INTRO JS - CHECK FOR FIRST VISIT AND RUN ONBOARDING
     const checkForOnboarding = () => {
         if(localStorage.first_visit === 'false'){
             return
@@ -117,7 +118,7 @@ export const ClassComponent = (props) => {
         <div>
             {/* {reservedInfo.includes(localStorage.user_id) ? console.log('yeet') : console.log('neet')} */}
             {/* <div>{foundClass === "Attending" ? classInfo.name : console.log(foundClass)}</div> */}
-            <div>
+            <div style={{width: '20rem', textAlign: 'left', border: '1px solid white', padding: '0 5%', margin: '1% 0'}}>
                 <div>Index: {index}</div>
                 <div>Name: {classInfo.name}</div>
                 <div>Type: {classInfo.type}</div>
@@ -135,9 +136,11 @@ export const ClassComponent = (props) => {
                     <option value="Not Attending">Not Attending</option>
                     <option value="Attending">Attending</option>
                 </select>
-                <button className='save-attendance' onClick={handleStatusChange}>Save Attendance Setting</button>
-                {localStorage.role === 'INSTRUCTOR' && <Link className='edit-link' to={`/Edit/${classInfo.class_id}`}>Edit</Link>}
-                <p>-----------------------------</p>
+                <div style={{display: 'flex'}}>
+                    <button className='save-attendance' onClick={handleStatusChange}>Save Attendance Setting</button>
+                    {localStorage.role === 'INSTRUCTOR' && <button><Link className='edit-link' to={`/Edit/${classInfo.class_id}`}>Edit</Link></button>}
+                </div>
+                <p style={{textAlign: 'center'}}>-----------------------------</p>
             </div>
         </div>
     )

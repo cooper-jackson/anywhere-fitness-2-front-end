@@ -5,7 +5,7 @@ import { fetchClasses } from '../actions/index'
 import { useHistory } from 'react-router';
 import { axiosWithAuth } from '../utils/AxiosWithAuth';
 import 'intro.js/introjs.css'
-import introJs from 'intro.js'
+import { StyledHomePage } from '../styled-components/StyledHomepage'
 
 const Homepage = (props) => {
       
@@ -52,32 +52,18 @@ const Homepage = (props) => {
         // console.log(props.classes)
     }
 
-    // //CHECK FOR USER FIRST VISIT - RUN ONBOARDING 
-    // const checkForOnboarding = () => {
-    //     if(localStorage.first_visit === 'false'){
-    //         return
-    //     } else if(localStorage.first_visit === 'INSTRUCTOR') {
-    //         introJs().setOptions({
-    //             steps: [
-    //                 {intro: "Thanks for signing up as an instructor! We look forward to providing our services to you and our customers."},
-    //                 {element: document.querySelector('.add-class'), intro: 'Here you can create a class for prospects to see.'},
-    //             ]
-    //         }).start()
-    //     } else return
-    // } 
-    // useEffect(() => {
-    //     checkForOnboarding()
-    // }, [])
-
-
     return (
-        <div>
-            {localStorage.role === 'INSTRUCTOR' && <button className='add-class' onClick={handleAddClass}>Add Class</button>}
-            <button onClick={handleLogout}>Logout</button>
+        <StyledHomePage>
+            <div>
+                <button className='logout' onClick={handleLogout}>Logout</button>
+                {localStorage.role === 'INSTRUCTOR' && <button className='add-class' onClick={handleAddClass}>Add Class</button>}
+            </div>
             {props.isFetching === true ? <p>Please Wait... </p> : <ClassesList/> }
-            <button className='save-changes' onClick={handleSaveChanges}>Save Changes</button>
-            <button onClick={handleUserInfo}>Get User Info</button>
-        </div>
+            <div>
+                <button className='save-changes' onClick={handleSaveChanges}>Save Changes</button>
+                <button onClick={handleUserInfo}>Get User Info</button>
+            </div>
+        </StyledHomePage>
     )
 }
 
