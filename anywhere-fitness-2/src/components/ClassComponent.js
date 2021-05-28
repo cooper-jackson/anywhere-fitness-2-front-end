@@ -4,6 +4,8 @@ import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
 import { fetchClasses } from '../actions/index'
 import { axiosWithAuth } from '../utils/AxiosWithAuth'
+import 'intro.js/introjs.css'
+import introJs from 'intro.js'
 
 export const ClassComponent = (props) => {
     const { classInfo } = props
@@ -14,6 +16,35 @@ export const ClassComponent = (props) => {
     const [foundClass, setFoundClass] = useState("a")
     
     // const [newCount, setNewCount] = useState(Number(props.classes[index].num_registered))
+
+    const checkForOnboarding = () => {
+        if(localStorage.first_visit === 'false'){
+            return
+        } else if(localStorage.first_visit === 'CLIENT') {
+            introJs().setOptions({
+                steps: [
+                    {intro: "Thanks for signing up as a client! We hope you can find what you're looking for."},
+                    {element: document.querySelector('.save-attendance'), intro: 'Here you can reserve a spot in an available class.'},
+                    {intro: 'More features to come!'}
+                ]
+            }).start()
+            localStorage.setItem('first_visit', false)
+        } else if(localStorage.first_visit === 'INSTRUCTOR') {
+            introJs().setOptions({
+                steps: [
+                    {intro: "Thanks for signing up as an instructor! We look forward to providing our services to you and our customers."},
+                    {element: document.querySelector('.add-class'), intro: 'Here you can create a class for prospects to see.'},
+                    {element: document.querySelector('.edit-link'), intro: 'You can also edit an existing class.'},
+                ]
+            }).start()
+            localStorage.setItem('first_visit', false)
+        } else return
+    } 
+    useEffect(() => {
+        setTimeout(() => {
+            checkForOnboarding()
+        }, 200)
+    }, [])
 
     useEffect(() => {
         setFoundClass('')
@@ -104,8 +135,8 @@ export const ClassComponent = (props) => {
                     <option value="Not Attending">Not Attending</option>
                     <option value="Attending">Attending</option>
                 </select>
-                <button onClick={handleStatusChange}>Save Attendance Setting</button>
-                {localStorage.role === 'INSTRUCTOR' && <Link to={`/Edit/${classInfo.class_id}`}>Edit</Link>}
+                <button className='save-attendance' onClick={handleStatusChange}>Save Attendance Setting</button>
+                {localStorage.role === 'INSTRUCTOR' && <Link className='edit-link' to={`/Edit/${classInfo.class_id}`}>Edit</Link>}
                 <p>-----------------------------</p>
             </div>
         </div>
