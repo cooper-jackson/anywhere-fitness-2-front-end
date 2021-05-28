@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { classes } from '../classData'
 import { connect } from 'react-redux'
 import { useHistory, useParams } from 'react-router';
 import { addClass } from '../actions/index'
@@ -32,6 +31,7 @@ function EditForm(props) {
         .catch(err => {
             console.log(err)
         })
+        // eslint-disable-next-line
     }, [])
 
     const handleChange = e => {

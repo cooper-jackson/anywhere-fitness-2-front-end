@@ -15,6 +15,7 @@ const Homepage = (props) => {
         props.credentials.username = localStorage.username
         props.credentials.email = localStorage.email
         props.credentials.role = localStorage.role
+        // eslint-disable-next-line
     }, [])
 
     const { push } = useHistory()

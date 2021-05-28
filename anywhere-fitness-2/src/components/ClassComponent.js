@@ -1,6 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
 import { fetchClasses } from '../actions/index'
 import { axiosWithAuth } from '../utils/AxiosWithAuth'
@@ -11,7 +10,6 @@ export const ClassComponent = (props) => {
     const { classInfo } = props
     // const [classInfo, setClassInfo] = 
     const { index } = props
-    const { push } = useHistory()
     const selectorId = 'attendance_setting'+index
     const [foundClass, setFoundClass] = useState("a")
     
@@ -59,6 +57,7 @@ export const ClassComponent = (props) => {
                 setFoundClass("Not Attending");
             }
         }
+        // eslint-disable-next-line
     }, [])
 
     const handleStatusChange = e => {

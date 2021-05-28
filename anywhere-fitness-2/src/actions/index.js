@@ -1,6 +1,3 @@
-import axios from 'axios'
-import { useHistory } from 'react-router';
-import { classes } from '../classData'
 import { axiosWithAuth } from '../utils/AxiosWithAuth'
 
 export const FETCH_START = "FETCH_START";

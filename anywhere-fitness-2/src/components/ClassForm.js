@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
-import { classes } from '../classData'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router';
 import { addClass } from '../actions/index'
-import { StyledLoginForm } from '../styled-components/StyledForm'
 import { StyledClassForm } from '../styled-components/StyledClassForm'
-import styled from 'styled-components';
 
 
 function ClassForm(props) {
