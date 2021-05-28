@@ -4,6 +4,8 @@ import ClassesList from './ClassesList'
 import { fetchClasses } from '../actions/index'
 import { useHistory } from 'react-router';
 import { axiosWithAuth } from '../utils/AxiosWithAuth';
+import 'intro.js/introjs.css'
+import { StyledHomePage } from '../styled-components/StyledHomepage'
 
 const Homepage = (props) => {
       
@@ -17,27 +19,27 @@ const Homepage = (props) => {
 
     const { push } = useHistory()
 
+    //ADD CLASS
     const handleAddClass = e => {
         e.preventDefault()
         push('/AddClass')
     }
 
+    //LOGOUT
     const handleLogout = e => {
         e.preventDefault()
-        localStorage.removeItem("token")
-        localStorage.removeItem("user_id")
-        localStorage.removeItem("username")
-        localStorage.removeItem("email")
-        localStorage.removeItem("role")
+        localStorage.clear()
         push('/')
     }
 
+    //SAVE CHANGES
     const handleSaveChanges = e => {
         e.preventDefault()
         props.fetchClasses()
         // console.log(props.classes)
     }
 
+    //GETS CURRENT CLASSES OF USER
     const handleUserInfo = e => {
         e.preventDefault()
         axiosWithAuth().get(`https://ft-anywhere-fitness-2.herokuapp.com/reserved`)
@@ -51,13 +53,17 @@ const Homepage = (props) => {
     }
 
     return (
-        <div>
-            {localStorage.role === 'INSTRUCTOR' && <button onClick={handleAddClass}>Add Class</button>}
-            <button onClick={handleLogout}>Logout</button>
+        <StyledHomePage>
+            <div>
+                <button className='logout' onClick={handleLogout}>Logout</button>
+                {localStorage.role === 'INSTRUCTOR' && <button className='add-class' onClick={handleAddClass}>Add Class</button>}
+            </div>
             {props.isFetching === true ? <p>Please Wait... </p> : <ClassesList/> }
-            <button onClick={handleSaveChanges}>Save Changes</button>
-            <button onClick={handleUserInfo}>Get User Info</button>
-        </div>
+            <div>
+                <button className='save-changes' onClick={handleSaveChanges}>Save Changes</button>
+                <button onClick={handleUserInfo}>Get User Info</button>
+            </div>
+        </StyledHomePage>
     )
 }
 

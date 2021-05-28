@@ -1,16 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
-import { fetchClasses, registeredSuccess } from '../actions/index'
+import { fetchClasses } from '../actions/index'
 import ClassComponent  from './ClassComponent'
-import { axiosWithAuth } from '../utils/AxiosWithAuth'
 
 const ClassesList = (props) => {
-
-    // const [reservedInfo, setReservedInfo] = useState([])
-
-    useEffect(() => {
-        // console.log(props.classes)
-    }, [])
 
     return (
         <div>

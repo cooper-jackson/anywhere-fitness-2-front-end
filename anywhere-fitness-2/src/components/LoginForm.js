@@ -26,6 +26,7 @@ function LoginForm(props) {
         axiosWithAuth().post('https://ft-anywhere-fitness-2.herokuapp.com/login', credentials)
         .then(res => {
             localStorage.setItem('token', res.data.token)
+            localStorage.setItem('first_visit', false)
             axiosWithAuth().get('https://ft-anywhere-fitness-2.herokuapp.com/users/current')
             .then(res => {
                 props.loginSuccess(res.data)
