@@ -56,13 +56,13 @@ function LoginForm(props) {
                 <form>
                     <h2>Log in</h2>
                     <div className="form-content">
+                        <label>Username: </label>
                         <div>
-                            <label>Username: </label>
                             <input type="text" name="username" value={credentials.username} onChange={handleChange} placeholder="Name"/>
                         </div>
 
+                        <label>Password: </label>
                         <div>
-                            <label>Password: </label>
                             <input type="password" name="password" value={credentials.password} onChange={handleChange} placeholder="Password"/>
                         </div>
                         <button onClick={handleLoginClick}>Log in</button>

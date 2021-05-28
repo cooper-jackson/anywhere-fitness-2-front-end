@@ -38,20 +38,20 @@ function SignUpForm(props) {
                 <form>
                     <h2>Sign up</h2>
                     <div className="form-content">
+                        <label>Name: </label>
                         <div>
-                            <label>Name: </label>
-                            <input type="text" name="username" id="username" onChange={handleChange} placeholder="Name"/>
+                            <input autoFocus type="text" name="username" id="username" onChange={handleChange} placeholder="Name"/>
                         </div>
+                        <label>Email: </label>
                         <div>
-                            <label>Email: </label>
                             <input type="email" name="email" id="email" onChange={handleChange} placeholder="Email"/>
                         </div>
+                        <label>Password: </label>
                         <div>
-                            <label>Password: </label>
                             <input type="password" name="password" id="password" onChange={handleChange} placeholder="Password"/>
                         </div>
+                        <label>Role: (Client or Instructor) </label>
                         <div>
-                            <label>Role: (Client or Instructor) </label>
                             <input type="text" name="role" id="role" onChange={handleChange} placeholder="Role"/>
                         </div>
                     </div>

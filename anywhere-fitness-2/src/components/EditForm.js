@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { useHistory, useParams } from 'react-router';
 import { addClass } from '../actions/index'
 import { axiosWithAuth } from '../utils/AxiosWithAuth';
-import { StyledLoginForm } from '../styled-components/StyledForm';
+import { StyledClassForm } from '../styled-components/StyledClassForm';
 
 
 function EditForm(props) {
@@ -73,10 +73,9 @@ function EditForm(props) {
     }
 
     return (
-        <StyledLoginForm>
-            <div className="container">
-                <form>
-                    <h2>Sign up</h2>
+        <StyledClassForm> 
+            <form className='class-form container'>
+                <h2>Edit Class Form</h2>
                     <div className="form-content">
                         <label>Name
                             <input
@@ -168,12 +167,12 @@ function EditForm(props) {
                             />
                         </label>
                     </div>
+                    <button onClick={handleSubmit}>Submit</button>
+                    <button onClick={handleDelete}>Delete</button>
+                    <button onClick={handleCancel}>Cancel</button>
                 </form>
-                <button onClick={handleSubmit}>Submit</button>
-                <button onClick={handleDelete}>Delete</button>
-                <button onClick={handleCancel}>Cancel</button>
-            </div>
-        </StyledLoginForm>
+                
+        </StyledClassForm>
     )
 }
 
