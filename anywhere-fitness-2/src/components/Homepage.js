@@ -34,24 +34,24 @@ const Homepage = (props) => {
     }
 
     //SAVE CHANGES
-    const handleSaveChanges = e => {
-        e.preventDefault()
-        props.fetchClasses()
-        // console.log(props.classes)
-    }
+    // const handleSaveChanges = e => {
+    //     e.preventDefault()
+    //     props.fetchClasses()
+    //     // console.log(props.classes)
+    // }
 
     //GETS CURRENT CLASSES OF USER
-    const handleUserInfo = e => {
-        e.preventDefault()
-        axiosWithAuth().get(`https://ft-anywhere-fitness-2.herokuapp.com/reserved`)
-        .then(res => {
-            console.log(res.data)
-        })
-        .catch(err => {
-            console.log(err)
-        })
-        // console.log(props.classes)
-    }
+    // const handleUserInfo = e => {
+    //     e.preventDefault()
+    //     axiosWithAuth().get(`https://ft-anywhere-fitness-2.herokuapp.com/reserved`)
+    //     .then(res => {
+    //         console.log(res.data)
+    //     })
+    //     .catch(err => {
+    //         console.log(err)
+    //     })
+    //     // console.log(props.classes)
+    // }
 
     return (
         <StyledHomePage>
@@ -60,10 +60,6 @@ const Homepage = (props) => {
                 {localStorage.role === 'INSTRUCTOR' && <button className='add-class' onClick={handleAddClass}>Add Class</button>}
             </div>
             {props.isFetching === true ? <p>Please Wait... </p> : <ClassesList/> }
-            <div>
-                <button className='save-changes' onClick={handleSaveChanges}>Save Changes</button>
-                <button onClick={handleUserInfo}>Get User Info</button>
-            </div>
         </StyledHomePage>
     )
 }
