@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import ClassesList from './ClassesList'
 import { fetchClasses } from '../actions/index'
 import { useHistory } from 'react-router';
-import { axiosWithAuth } from '../utils/AxiosWithAuth';
 import 'intro.js/introjs.css'
 import { StyledHomePage } from '../styled-components/StyledHomepage'
 
